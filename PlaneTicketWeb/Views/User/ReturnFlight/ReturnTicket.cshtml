@@ -1,0 +1,17 @@
+﻿@model Ticket
+
+
+<div class="text-center">
+    <div class="mainText">
+        <h1 class="display-4 text-capitalize fw-bold purpleText">Ticket Type</h1>
+        <h2 class="mainSubtitle purpleText">Please choose your ticket's type</h2>
+    </div>
+    <p>If you want one way only ticket proceed through here</p>
+    <a class="btn btn-primary" style="float: none; background-color: mediumpurple" asp-area="" asp-controller="Purchase" asp-action="PurchaseForm" asp-route-SeatId="@Model.SeatId">One Way</a>
+    <br />
+    <p>If you want two way ticket proceed through here</p>
+    <a class="btn btn-primary" style="float: none; background-color: mediumpurple" asp-area="" asp-controller="User" asp-action="ReturnFlightResults" asp-route-SeatId="@Model.SeatId">Two Way</a>
+
+    <br /><br />
+
+</div>

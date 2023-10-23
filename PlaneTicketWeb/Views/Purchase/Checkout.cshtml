@@ -1,0 +1,54 @@
+﻿@model Ticket
+
+<div class="text-center container">
+    <h1>Payment</h1>
+
+    <p>Your Ticket</p>
+    <p>Name: @Model.Name</p>
+    <p>Last Name: @Model.LastName</p>
+    <p>TCKN: @Model.TCKN</p>
+    <p>Phone Number: @Model.PhoneNumber</p>
+    <p>Way Type: @(Model.isTwoWay ? "Two Way" : "One Way") </p>
+    <p>Flight No: @ViewBag.FlightNo</p>
+    <p>Departure Point: @ViewBag.LocationFrom</p>
+    <p>Destination: @ViewBag.LocationTo</p>
+    <p>Seat No: @ViewBag.SeatName</p>
+
+    @if (Model.isTwoWay == true)
+    {
+        <br />
+        <p>Flight No of Return Flight: @ViewBag.SecondFlightNo</p>
+        <p>Departure Point of Return Flight: @ViewBag.SecondLocationFrom</p>
+        <p>Destination of Return Flight: @ViewBag.SecondLocationTo</p>
+        <p>Seat No of Return Flight: @ViewBag.SecondSeatName</p>
+    }
+    
+    
+    @{
+        // if (Model.isTwoWay == true)
+        // {
+        //     <input type="int" asp-for="SecondFlightId" hidden />
+        // }
+        // <br />
+    }
+
+    <form method="post" asp-action="CheckoutPost" class="mx-auto mt-5 mb-5 px-5 pt-5 pb-5 rounded-5 alert-light col-4">
+
+
+        <input asp-for="Id" hidden />
+
+        <input type="text" asp-for="Name" hidden />
+        <input type="text" asp-for="LastName" hidden />
+        <input type="text" asp-for="TCKN" hidden />
+        <input type="text" asp-for="PhoneNumber" hidden />
+        <input type="bool" asp-for="isTwoWay" hidden />
+        <input type="int" asp-for="FlightId" hidden />
+        <input type="int" asp-for="SeatId" hidden />
+        <input type="int" asp-for="SecondFlightId" hidden />
+        <input type="int" asp-for="SecondSeatId" hidden />
+
+        <button class="btn btn-danger alert-primary mt-1 purpleButton whiteText" type="submit">Buy</button>
+
+    </form>
+
+</div>

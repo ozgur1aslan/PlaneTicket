@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>You can either perform CRUD operations to manage flights as an admin or purchase tickets and make PNR searches as a user.</p>
+    <strong style="font-size:22px">
+        Please keep in mind that this project is backend focused rather than frontend.
+    </strong>
+    <p>Database system that has been used for this project is PostgreSQL.</p>
+    <br />
+    <p>Admin can:</p>
+    <br />
+    <p>-Create,edit,delete and see list of Countries.</p>
+    <p>-Create,edit,delete and see list of Cities.</p>
+    <p>-Create,edit,delete and see list of Flights. Also seats' availability related to the flights can be seen.</p>
+    <br /> <br />
+    <p>User can:</p>
+    <br />
+    <p>-Search for a flight and and select and available seat for purchase. There are some limitations and validations in searches.</p>
+    <p>-For example user can't search for a date that has already passed. I could start the calendar from the day the search is being made but I wanted to show that there are validations.</p>
+    <p>-After selecting their first flight and seat, user can either proceed to the payment or choose another flight in order to get back in selected date.</p>
+    <p>-Search result for return flight are determined according to the first flight's data.'</p>
+    <p>-After purchasing their ticket, user can use their PNR in order to see their flight information.</p>
+</div>

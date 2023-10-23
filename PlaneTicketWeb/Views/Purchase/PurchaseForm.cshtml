@@ -1,0 +1,49 @@
+﻿@model Ticket
+
+<div class="text-center container">
+    <h1>Please fill the required information in order to purchase your ticket.</h1>
+
+    <form method="post" asp-controller="Purchase" asp-action="PurchaseFormPOST" class="mx-auto mt-5 mb-5 px-5 pt-5 pb-5 rounded-5 alert-light col-4">
+
+        @*<div asp-validation-summary="All"></div>*@
+
+        <input type="text" style="accent-color: mediumpurple" asp-for="Name"
+               placeholder="Name" />
+        <br />
+
+        <input type="text" style="accent-color: mediumpurple" asp-for="LastName"
+               placeholder="LastName" />
+        <br />
+
+        <input type="number" style="accent-color: mediumpurple" asp-for="TCKN"
+               min="10000000000" max="99999999999" pattern="[0-9]{11}" required placeholder="TCKN" />
+               
+        <br />
+        <label>Don't put "0" at the start.</label>
+        <input type="tel" style="accent-color: mediumpurple" asp-for="PhoneNumber"
+               pattern="^\d{10}$" placeholder="PhoneNumber" />
+        <br />
+
+        <input hidden type="checkbox" style="accent-color: mediumpurple" asp-for="isTwoWay" value="false" />
+        <br />
+
+        <input hidden type="number" style="accent-color: mediumpurple" asp-for="SeatId" value="@Model.SeatId" />
+        <br />
+
+
+        @if(Model.SecondSeatId != 0)
+        {
+            <input hidden type="number" style="accent-color: mediumpurple" asp-for="SecondSeatId" value="@Model.SecondSeatId" />
+            <br />
+        }
+
+
+
+
+        <button class="btn alert-primary mt-1 purpleButton whiteText" type="submit">Proceed to Checkout</button>
+        <a asp-controller="User" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to Menu
+        </a>
+    </form>
+
+</div>

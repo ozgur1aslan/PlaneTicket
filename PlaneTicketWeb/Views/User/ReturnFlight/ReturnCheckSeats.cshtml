@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Seat>
+
+@{
+    IEnumerable<Seat> rowSet = Model.OrderBy(seat => seat.Id);
+    IEnumerable<Seat> firstRow = rowSet.Skip(0).Take(20);
+    IEnumerable<Seat> secondRow = rowSet.Skip(20).Take(20);
+    IEnumerable<Seat> thirdRow = rowSet.Skip(40).Take(20);
+    IEnumerable<Seat> fourthRow = rowSet.Skip(60).Take(20);
+
+}
+
+<div style="margin-bottom: 10px">
+    @foreach (var seat in firstRow)
+    {
+
+
+        <div style="margin-bottom: 0px; display: inline-block;">
+
+            @if (seat.isBooked == true)
+            {
+                <div style="background-color: pink; width: 30px; height: 50px;">
+                    <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                </div>
+            }
+            else
+            {
+                <a style="text-decoration: none; color:black" asp-area="" asp-controller="Purchase" asp-action="PurchaseForm"
+                   asp-route-SecondSeatId="@seat.Id" asp-route-SeatId="@ViewBag.SeatId">
+                    <div style="background-color: #90EE90; width: 30px; height: 50px;">
+                        <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                    </div>
+                </a>
+            }
+
+        </div>
+
+
+    }
+</div>
+
+<div style="margin-bottom: 120px">
+    @foreach (var seat in secondRow)
+    {
+
+
+        <div style="margin-bottom: 0px; display: inline-block;">
+
+            @if (seat.isBooked == true)
+            {
+                <div style="background-color: pink; width: 30px; height: 50px;">
+                    <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                </div>
+            }
+            else
+            {
+                <a style="text-decoration: none; color:black" asp-area="" asp-controller="Purchase" asp-action="PurchaseForm"
+                   asp-route-SecondSeatId="@seat.Id" asp-route-SeatId="@ViewBag.SeatId">
+                    <div style="background-color: #90EE90; width: 30px; height: 50px;">
+                        <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                    </div>
+                </a>
+            }
+
+        </div>
+
+
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+<div style="margin-bottom: 10px">
+    @foreach (var seat in thirdRow)
+    {
+
+
+        <div style="margin-bottom: 0px; display: inline-block;">
+
+            @if (seat.isBooked == true)
+            {
+                <div style="background-color: pink; width: 30px; height: 50px;">
+                    <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                </div>
+            }
+            else
+            {
+                <a style="text-decoration: none; color:black" asp-area="" asp-controller="Purchase" asp-action="PurchaseForm"
+                   asp-route-SecondSeatId="@seat.Id" asp-route-SeatId="@ViewBag.SeatId">
+                    <div style="background-color: #90EE90; width: 30px; height: 50px;">
+                        <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                    </div>
+                </a>
+            }
+
+        </div>
+
+    }
+</div>
+
+<div style="margin-bottom: 5px">
+    @foreach (var seat in fourthRow)
+    {
+
+        <div style="margin-bottom: 0px; display: inline-block;">
+
+            @if (seat.isBooked == true)
+            {
+                <div style="background-color: pink; width: 30px; height: 50px;">
+                    <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                </div>
+            }
+            else
+            {
+                <a style="text-decoration: none; color:black" asp-area="" asp-controller="Purchase" asp-action="PurchaseForm"
+                   asp-route-SecondSeatId="@seat.Id" asp-route-SeatId="@ViewBag.SeatId">
+                    <div style="background-color: #90EE90; width: 30px; height: 50px;">
+                        <p style="text-align: center; margin-bottom: 0px; padding-top: 10px">@seat.SeatName</p>
+                    </div>
+                </a>
+            }
+
+        </div>
+
+    }
+</div>

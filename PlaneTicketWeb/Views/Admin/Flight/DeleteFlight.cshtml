@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+}
+
+@model Flight
+
+<div class="text-center container">
+    <h1>Delete a flight</h1>
+
+    <form method="post" asp-controller="Admin" asp-action="DeleteFlightPOST" class="mx-auto mt-5 mb-5 px-5 pt-5 pb-5 rounded-5 alert-light col-4">
+
+        <div asp-validation-summary="All"></div>
+
+        <input asp-for="Id" hidden />
+
+        <label>Choose departure date:</label>
+        <input type="date" disabled style="accent-color: mediumpurple" asp-for="DepartureDate"
+               placeholder="Choose departure date" value="@Model.DepartureDate.ToString("yyyy-MM-dd")" />
+        <br />
+        <span asp-validation-for="DepartureDate" class="text-danger"></span>
+
+
+        <label>Choose departure time:</label>
+        <input type="time" disabled style="accent-color: mediumpurple" asp-for="DepartureTime"
+               placeholder="Choose departure time" />
+        <br />
+        <span asp-validation-for="DepartureTime" class="text-danger"></span>
+
+
+
+        <label>Choose departure point:</label>
+        <select asp-for="LocationFrom" asp-items="ViewBag.CityList" disabled class="form-control">
+            <option value="">@Model.LocationFrom</option>
+        </select>
+        <span asp-validation-for="LocationFrom" class="text-danger"></span>
+
+
+
+        <label>Choose destination point:</label>
+        <select asp-for="LocationTo" asp-items="ViewBag.CityList" disabled class="form-control">
+            <option value="">@Model.LocationTo</option>
+        </select>
+        <span asp-validation-for="LocationTo" class="text-danger"></span>
+
+
+        <input type="hidden" asp-for="FlightNo" disabled />
+
+        <button class="btn alert-primary mt-1 purpleButton whiteText" type="submit">Delete Flight</button>
+        <a asp-controller="Admin" asp-action="FlightList" class="btn btn-secondary" style="width:150px">
+            Back to Menu
+        </a>
+    </form>
+
+</div>

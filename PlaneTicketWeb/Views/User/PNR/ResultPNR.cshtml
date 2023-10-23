@@ -1,0 +1,78 @@
+﻿@model Ticket
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .info p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+            .info p:nth-child(odd) {
+                background-color: #f7f7f7;
+            }
+
+        .return-info {
+            background-color: #e6f7f7;
+            border: 1px solid #66b2b2;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+
+        <div class="info">
+            <p>Your Ticket</p>
+            <p>Name: @Model.Name</p>
+            <p>Last Name: @Model.LastName</p>
+            <p>TCKN: @Model.TCKN</p>
+            <p>Phone Number: @Model.PhoneNumber</p>
+            <p>Way Type: @(Model.isTwoWay ? "Two Way" : "One Way")</p>
+            <p>Flight No: @ViewBag.FlightNo</p>
+            <p>Departure Point: @ViewBag.LocationFrom</p>
+            <p>Destination: @ViewBag.LocationTo</p>
+            <p>Seat No: @ViewBag.SeatName</p>
+        </div>
+
+        @if (Model.isTwoWay == true)
+        {
+            <div class="return-info">
+                <p>Flight No of Return Flight: @ViewBag.SecondFlightNo</p>
+                <p>Departure Point of Return Flight: @ViewBag.SecondLocationFrom</p>
+                <p>Destination of Return Flight: @ViewBag.SecondLocationTo</p>
+                <p>Seat No of Return Flight: @ViewBag.SecondSeatName</p>
+            </div>
+        }
+    </div>
+</body>
+</html>

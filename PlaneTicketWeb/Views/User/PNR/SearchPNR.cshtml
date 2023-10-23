@@ -1,0 +1,20 @@
+﻿@model Ticket
+
+<div class="text-center container">
+    <h1>Please enter your PNR</h1>
+
+    <form method="post" asp-controller="User" asp-action="SearchPNR" class="mx-auto mt-5 mb-5 px-5 pt-5 pb-5 rounded-5 alert-light col-4">
+
+        @*<div asp-validation-summary="All"></div>*@
+
+        <input type="text" style="accent-color: mediumpurple" asp-for="PNR"
+               placeholder="PNR" />
+        <br />
+
+        <button class="btn alert-primary mt-1 purpleButton whiteText" type="submit">Proceed</button>
+        <a asp-controller="User" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to Menu
+        </a>
+    </form>
+
+</div>
