@@ -12,8 +12,8 @@ using PlaneTicketWeb.Data;
 namespace PlaneTicketWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231022104639_mig6")]
-    partial class mig6
+    [Migration("20231023055501_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
