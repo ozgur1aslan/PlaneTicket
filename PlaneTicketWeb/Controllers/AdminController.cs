@@ -336,7 +336,7 @@ namespace PlaneTicketWeb.Controllers
 
             if (obj.DepartureDate == DateOnly.FromDateTime(DateTime.Now) && obj.DepartureTime < TimeOnly.FromDateTime(DateTime.Now))
             {
-                ModelState.AddModelError("CustomError", "Departure time can't chosen from past.");
+                ModelState.AddModelError("CustomError", "Departure time can't chosen from past2.");
             }
 
 

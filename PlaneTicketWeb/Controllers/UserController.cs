@@ -87,11 +87,20 @@ namespace PlaneTicketWeb.Controllers
             DateOnly minus7Days = today > obj.DepartureDate.AddDays(-7) ? today : obj.DepartureDate.AddDays(-7);
             DateOnly plus7Days = obj.DepartureDate.AddDays(7);
 
+            //IEnumerable<Flight> objFlightList = _db.Flights
+            //    .Where(x => x.LocationFrom == obj.LocationFrom)
+            //    .Where(x => x.LocationTo == obj.LocationTo)
+            //    .Where(x =>
+            //        (x.DepartureDate >= minus7Days || (x.DepartureDate == minus7Days && x.DepartureTime > currentTime)) &&
+            //        (x.DepartureDate <= plus7Days)
+            //    );
+
+
             IEnumerable<Flight> objFlightList = _db.Flights
                 .Where(x => x.LocationFrom == obj.LocationFrom)
                 .Where(x => x.LocationTo == obj.LocationTo)
                 .Where(x =>
-                    (x.DepartureDate >= minus7Days || (x.DepartureDate == minus7Days && x.DepartureTime > currentTime)) &&
+                    (x.DepartureDate > minus7Days || (x.DepartureDate == minus7Days && x.DepartureTime >= currentTime)) &&
                     (x.DepartureDate <= plus7Days)
                 );
 
@@ -264,7 +273,7 @@ namespace PlaneTicketWeb.Controllers
                     .Where(x => x.LocationFrom == refFlight.LocationTo)
                     .Where(x => x.LocationTo == refFlight.LocationFrom)
                     .Where(x =>
-                        (x.DepartureDate >= chosenDay || (x.DepartureDate == chosenDay && x.DepartureTime > currentTime)) &&
+                        (x.DepartureDate > chosenDay || (x.DepartureDate == chosenDay && x.DepartureTime > refFlight.DepartureTime)) &&
                         (x.DepartureDate <= plus7Days)
                     );
 
